@@ -1,39 +1,134 @@
 export const sectionData = [
   {
-    title: "Creation of Website",
-    heading: "Showcase & Ecommerce",
-    body: " We create a completely personalized site for you, in your image and meeting your needs. Whether you want to redesign your site or create a site from A to Z, we are here to support you and help you achieve your goals.",
+    title: "Content Creation",
+    heading: "Digital Marketing",
+    body: "At MotivaPulse AI, we revolutionize your digital presence by combining AI insights with creative expertise. Our AI tools analyze market trends, while our professionals craft compelling content that truly resonates. This ensures your brand's message is delivered effectively, boosting engagement and driving growth.",
   },
   {
-    title: "Webdesign graphics",
-    heading: "Design & visual identity",
-    body: "Our web designers are specialists in user experience (UX / UI). The graphics of the site are made to provide the best experience for your customers and to reflect the identity and values of your company.",
+    title: "Customer Support",
+    heading: "Experience Enhancements",
+    body: "Improve customer satisfaction with tailored support services and experience optimization, leveraging AI for timely and effective interactions.",
   },
   {
-    title: "Symfony development",
-    heading: "Web & Application",
-    body: "All the sites we create are developed with Symfony , which allows total customization of your pages and great freedom of action. We design sites that adapt to you and your use.",
+    title: "Data Analysis",
+    heading: "Business Intelligence",
+    body: "Unlock valuable insights with our AI-powered data analysis and business intelligence solutions, helping you make informed decisions.",
   },
   {
-    title: "Digital strategy",
-    heading: "Marketing & communication",
-    body: "We support you in developing your digital strategy . SEO optimization, SEA campaign, display, social networks, Newsletter , we advise you and put in place the tools adapted and conducive to traffic generation.",
+    title: "Software/Web Development",
+    heading: "Automation Solutions",
+    body: "Our team of professional developers and UI/UX designers create custom software and websites, utilizing AI to enhance efficiency and quality.",
   },
+  {
+    title: "Creative Design",
+    heading: "Multimedia Services",
+    body: "We offer AI-assisted graphic design, video production, and multimedia services to bring your creative vision to life.",
+  },
+  {
+    title: "Recruitment",
+    heading: "HR Management",
+    body: "Streamline your hiring process with AI-enhanced recruitment strategies and efficient HR management solutions.",
+  },
+  {
+    title: "Financial Advisory",
+    heading: "Advisory Services",
+    body: "Leverage our AI-driven financial advisory services to optimize your financial strategies and ensure sustainable growth.",
+  },
+  {
+    title: "Educational Content",
+    heading: "E-Learning Courses Development",
+    body: "Create engaging educational materials and e-learning courses with our AI-enhanced development tools and expert educators.",
+  },
+
+  {
+    title: "Legal Support",
+    heading: "Compliance Services",
+    body: "Ensure your business adheres to all legal requirements with our AI-assisted legal support and compliance solutions.",
+  },
+
+  {
+    title: "Translation",
+    heading: "Localization Services",
+    body: "Expand your reach globally with our AI-powered translation and localization services, ensuring your content resonates across different cultures",
+  },
+
+  {
+    title: "Personal Marketing",
+    heading: "Advertising",
+    body: "Enhance your personal brand with our AI-driven marketing and advertising strategies tailored to your unique needs.",
+  },
+
+  {
+    title: "BA and Admin Support",
+    heading: "Event Planning and Management",
+    body: "Optimize your business operations and organize successful events with our comprehensive BA, admin support, and event management services.",
+  },
+  {
+    title: "Environment",
+    heading: "Sustainability Consulting",
+    body: "Implement sustainable practices in your business with our AI-enhanced environmental consulting services.",
+  },
+  {
+    title: "Real Estate",
+    heading: "Property Management",
+    body: "Manage your real estate assets efficiently with our AI-powered property management solutions.",
+  },
+  {
+    title: "Supply Chain",
+    heading: "Logistics Optimization",
+    body: "Enhance your supply chain efficiency with our AI-driven logistics optimization services.",
+  },
+  {
+    title: "AI Ethics",
+    heading: "Consulting Services",
+    body: "Navigate the complexities of AI ethics with our comprehensive consulting services, ensuring responsible AI implementation.",
+  },
+
 ];
 export const miniSectionData = [
   {
-    title: "Reflect your identity",
-    heading: "and your positioning",
-    body: "We make your site to measure to allow you to best reflect the identity and values ​​of your company. Our developers and web graphic designers create a unique site for you that will differentiate you from your competitors and allow you to assert your positioning.",
+    title: "Unmatched",
+    heading: "Reliability",
+    body: "Say goodbye to inconsistent results. Our AI-human collaboration ensures consistent, high-quality outcomes every time.",
   },
   {
-    title: "Foster a good",
-    heading: "user experience",
-    body: "A tailor-made site allows you to offer your customers a better user experience. This user experience plays an essential role in the satisfaction of your customers and in their loyalty. A good browsing experience on your site is a real lever for conversions.",
+    title: "Industry-Specific",
+    heading: "Insight",
+    body: "Our experts understand your industry's nuances, delivering solutions tailored to your unique needs.",
   },
   {
-    title: "An internet site",
-    heading: "easy to use",
-    body: "With a tailor-made site you have access to an easy-to-use interface. When we design your site we conform to your needs and offer you a personalized administration interface adapted to your use. We don't burden you with thousands of features if you don't need them.",
+    title: "Infinite",
+    heading: "Potential",
+    body: "The synergy of human wisdom and AI's limitless knowledge unlocks supreme quality and innovative solutions.",
   },
+  {
+    title: "Cost Effective",
+    heading: "Solutions",
+    body: "We provide top-tier services without breaking the bank, ensuring efficiency and quality at competitive prices.",
+  },
+  {
+    title: "Scalable",
+    heading: "Solutions",
+    body: "Our services grow with your business, ensuring that you always have the support you need as you expand.",
+  },
+  {
+    title: "Cutting-Edge",
+    heading: "Innovation",
+    body: "We leverage the latest AI advancements to provide cutting-edge solutions that keep you ahead of the competition.",
+  },
+  {
+    title: "Exceptional",
+    heading: "Support",
+    body: "Our dedicated support team is always available to assist you, ensuring a smooth and seamless experience.",
+  },
+  {
+    title: "Exceptional",
+    heading: "Support",
+    body: "Our dedicated support team is always available to assist you, ensuring a smooth and seamless experience.",
+  },
+  {
+    title: "Customized",
+    heading: "Solutions",
+    body: "We tailor our services to meet your specific business needs, ensuring that you receive the most effective and relevant solutions.",
+  }
 ];

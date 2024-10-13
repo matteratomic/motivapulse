@@ -12,15 +12,17 @@ function App() {
   const [, setVisible] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   const refContainer = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    setupSmoothScroll();
-    const body = document.getElementsByTagName("body")[0];
-    body.style.overflow = "hidden";
-    window.addEventListener("beforeunload", () => {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    });
-  }, []);
+
+  // useEffect(() => {
+  //   setupSmoothScroll();
+  //   const body = document.getElementsByTagName("body")[0];
+  //   body.style.overflow = "hidden";
+  //   window.addEventListener("beforeunload", () => {
+  //     document.body.scrollTop = 0;
+  //     document.documentElement.scrollTop = 0;
+  //   });
+  // }, []);
+
   const setupSmoothScroll = () => {
     // const asscroll = new ASScroll({
     //   disableRaf: true,
@@ -59,11 +61,6 @@ function App() {
     <>
       <ThemeContextProvider>
         <div ref={refContainer} className={classes.master}>
-          <Setup
-            toggleMainVisibility={(val) => {
-              setVisible(val);
-            }}
-          />
           <div ref={ref}>
             <Main />
           </div>

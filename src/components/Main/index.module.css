@@ -206,3 +206,37 @@
     height: 100%;
   }
 }
+
+.dilemmaContainer {
+/* height:100vh; */
+width:100vw;
+  padding:32px;
+  padding-left:11rem;
+  background:var(--salmon-orange);
+}
+
+.dilemmaContainer h1 {
+  font-family: "Gilroy", sans-serif;
+  color:white;
+  font-weight:600;
+  font-size: calc(15px + 50 * (100vw - 320px) / 1080);
+}
+
+.dilemmaContainer p {
+  font-weight:600;
+  font-size:1.2rem
+}
+
+.dilemmaContainer li {
+  font-size:1.2rem;
+  margin-bottom:1rem;
+}
+
+.title {
+    font-family: "Gilroy", sans-serif;
+    font-weight: 800;
+    text-align: center;
+    background: var(--salmon-orange);
+    -webkit-background-clip: text;
+    margin-top: 40px;
+}

@@ -71,8 +71,8 @@ const Index: React.FC = () => {
           size === "xs"
             ? `bottom +=${vw(50 - 25)}px`
             : size === "sm"
-            ? `bottom +=${vw(50 - 25)}px`
-            : "center center",
+              ? `bottom +=${vw(50 - 25)}px`
+              : "center center",
         // start: "center center",
         endTrigger: "#blackend",
         end: "bottom bottom",
@@ -87,7 +87,7 @@ const Index: React.FC = () => {
     // ("top right bottom left");
     const children = ref.current && Array.from(ref.current.children);
     if (children) {
-      t2.to(children[0], { scale: 1, ease: "linear", duration: 1 });
+      t2.to(children[0], { scale: 1, ease: "linear", duration: 2 });
       t2.to(children[0], { scale: 0.07, ease: "linear", duration: 1 });
       t2.to(children[1], { scale: 1, ease: "linear", duration: 1 }, "<");
       t2.to(children[1], { scale: 0.07, ease: "linear", duration: 1 });
@@ -116,8 +116,8 @@ const Index: React.FC = () => {
         size === "xs"
           ? undefined
           : size === "sm"
-          ? undefined
-          : -1 * (vw(50) - vh(76 / 2)),
+            ? undefined
+            : -1 * (vw(50) - vh(76 / 2)),
       // x: size === "xs" ? undefined : size === "sm" ? undefined : -vw(50),
       rotate: "-=360_ccw",
       ease: "linear",
@@ -186,6 +186,101 @@ const Index: React.FC = () => {
         className={[classes.innerCircle, classes.left].join(" ")}
       >
         <div id="yon4" className={classes.bottomBox}>
+          <Marketing />
+        </div>
+      </div>      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.top].join(" ")}
+      >
+        <div id="yon5" className={classes.bottomBox}>
+          <Showcase />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.right].join(" ")}
+      >
+        <div id="yon6" className={classes.bottomBox}>
+          <Design />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.bottom].join(" ")}
+      >
+        <div id="yon7" className={classes.bottomBox}>
+          <Application />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.left].join(" ")}
+      >
+        <div id="yon8" className={classes.bottomBox}>
+          <Marketing />
+        </div>
+      </div>      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.top].join(" ")}
+      >
+        <div id="yon9" className={classes.bottomBox}>
+          <Showcase />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.right].join(" ")}
+      >
+        <div id="yon10" className={classes.bottomBox}>
+          <Design />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.bottom].join(" ")}
+      >
+        <div id="yon11" className={classes.bottomBox}>
+          <Application />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.left].join(" ")}
+      >
+        <div id="yon12" className={classes.bottomBox}>
+          <Marketing />
+        </div>
+      </div>
+
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.top].join(" ")}
+      >
+        <div id="yon13" className={classes.bottomBox}>
+          <Showcase />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.right].join(" ")}
+      >
+        <div id="yon14" className={classes.bottomBox}>
+          <Design />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.bottom].join(" ")}
+      >
+        <div id="yon15" className={classes.bottomBox}>
+          <Application />
+        </div>
+      </div>
+      <div
+        style={{ background: ctx?.theme?.color }}
+        className={[classes.innerCircle, classes.left].join(" ")}
+      >
+        <div id="yon16" className={classes.bottomBox}>
           <Marketing />
         </div>
       </div>

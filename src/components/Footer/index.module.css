@@ -48,12 +48,17 @@
 }
 .rightMost {
   margin-left: auto;
-  width: 15%;
+  width: 25%;
   text-align: right;
 }
 .rightMost ul li {
   list-style: none;
 }
+
+.container a {
+  color:#5C5C5C
+}
+
 @media screen and (max-width: 1200px) {
   .wrapper {
     flex-direction: column-reverse;

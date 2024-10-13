@@ -55,33 +55,32 @@ function Index() {
     };
   }, [ctx]);
   return (
-    <section className={classes.main}>
+    <section id="home" className={classes.main}>
       <div className={classes.mainWrapper}>
-        <div className={classes.svgWrapper}>
-          <svg viewBox="0 0 100 100" ref={svgref}>
-            <defs>
-              <path
-                id="c-1"
-                d="M 50, 50m -25, 0 a 25,25 0 1,1 50,0 a 25,25 0 1,1-50,0"
-              ></path>
-            </defs>
-            <text fontSize="8">
-              <textPath xlinkHref="#c-1">
-                Welcome to the aprisal web agency
-              </textPath>
-            </text>
-          </svg>
-        </div>
+        {/* <div className={classes.svgWrapper}> */}
+        {/*   <svg viewBox="0 0 100 100" ref={svgref}> */}
+        {/*     <defs> */}
+        {/*       <path */}
+        {/*         id="c-1" */}
+        {/*         d="M 50, 50m -25, 0 a 25,25 0 1,1 50,0 a 25,25 0 1,1-50,0" */}
+        {/*       ></path> */}
+        {/*     </defs> */}
+        {/*     <text fontSize="8"> */}
+        {/*       <textPath xlinkHref="#c-1">We welcome you to MotivaPulse</textPath> */}
+        {/*     </text> */}
+        {/*   </svg> */}
+        {/* </div> */}
         <div className={classes.textContainer}>
-          <div className={classes.h1txt}>The web agency</div>
-          <div className={classes.h1txt}>exclusively for you,</div>
+          <div className={classes.h1txt}>Unleash your business potential</div>
+          <div className={classes.h1txt}>with the perfect blend of</div>
+          <div className={classes.h1txt}>human expertise and AI power</div>
           <div className={classes.rcontainer}>
             <div className={classes.h1txt}>for your&nbsp;</div>
             <div
               ref={ref}
               className={[classes.h1txt, classes.revealer].join(" ")}
             >
-              {["site", "marketing", "design", "application"].map((val, i) => {
+              {["marketing", "support", "analysis", "programming", "design", "recruiment", "e-learning", "translation", "supply chain"].map((val, i) => {
                 return (
                   <div
                     className={classes.sparetxt}
@@ -98,7 +97,18 @@ function Index() {
             </div>
           </div>
         </div>
-        <Link secondary={"rgba(255,255,255,0.1)"} text={"See or projects"} />
+        {/* <Link secondary={"rgba(255,255,255,0.1)"} text={"SCROLL DOWN"} /> */}
+        <div style={{
+          position:'relative',zIndex:10,
+          display: "flex", alignItems: "center"
+        }}>
+          <a href="#services" className={classes.button}>
+            Explore our services
+          </a>
+          <a href="#contact" className={classes.buttonOutline}>
+            Book a Consultation
+          </a>
+        </div>
       </div>
       <Screen />
     </section>

@@ -11,7 +11,7 @@ const Index: React.FC<SectionProps> = ({ children, title, heading, body }) => {
     <div className={classes.miniSection}>
       <div className={classes.miniContainer}>
         <div>
-          <h3 style={{ display: "inline-block" }}>
+          <h3 style={{ margin:0,display: "inline-block" }}>
             <small className={classes.thin}>{title}</small>
             <strong style={{ fontWeight: 800 }}>{heading}</strong>
           </h3>

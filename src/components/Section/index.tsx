@@ -25,7 +25,7 @@ const Index: React.FC<SectionProps> = ({
             {heading}
           </strong>
           <div className={classes.txt}>
-            <p>{body} </p>
+            <p style={{fontSize:'1.2rem'}}>{body}</p>
           </div>
         </h3>
         <Link

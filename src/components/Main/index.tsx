@@ -20,6 +20,9 @@ import Link from "../Link";
 import Footer from "../Footer";
 import useBreakpoint from "./../../hooks/useBreakpoint";
 import useViewport from "./../../hooks/useViewport";
+import QuoteCarousel from "../QuoteCarousel";
+import FAQAccordion from "../FAQAccordion";
+import ContactForm from "../ContactForm";
 function Index() {
   const ctx = React.useContext(themeContext);
   const ref = React.useRef<HTMLDivElement>(null);
@@ -66,8 +69,8 @@ function Index() {
           size === "xs"
             ? `bottom +=${vh(30)}px`
             : size === "sm"
-            ? `bottom +=${vh(30)}px`
-            : "center center",
+              ? `bottom +=${vh(30)}px`
+              : "center center",
         endTrigger: "#giga",
         end: "bottom bottom",
         scrub: true,
@@ -177,7 +180,71 @@ function Index() {
       <div className={classes.container}>
         <Header />
         <Landing />
+        <div
+          id="dilemma"
+          style={{ color: "white" }}
+          className={classes.dilemmaContainer}>
+          <h1
+            className={classes.h1txt}>The AI Dilemma <span style={{ color: "#141219", display: 'block' }}>Why Settle for Less?</span></h1>
+          <p>Have you ever felt the frustration of</p>
+          <ul>
+            <li>
+              Spending countless hours tweaking AI prompts, only to get inconsistent results?
+            </li>
+            <li>
+              Receiving outputs that are close, but not quite right, wasting your valuable time?
+            </li>
+            <li>
+              Hitting unexpected limitations mid-project, forcing you to start over?
+            </li>
+            <li>
+              Dealing with privacy concerns when sharing sensitive business information?
+            </li>
+            <li>
+              Relying on traditional virtual assistants that lack advanced AI integration?
+            </li>
+          </ul>
+
+          <h1
+            id="revolution"
+            style={{ marginTop: "4rem" }}
+            className={classes.h1txt}>
+            Our Revolutionary Approach
+            <span style={{ color: "#141219", display: 'block' }}>
+              Human Brilliance Amplified by AI
+            </span></h1>
+          <p>
+            Why choose between human creativity and AI efficiency when you can have both?
+
+            At MotivaPulse AI, we offer a unique hybrid service that combines the best of both worlds. Our experts know precisely when to leverage AI tools and when the human touch is irreplaceable, delivering solutions that are both innovative and reliable.
+          </p>
+          <p>Our Edge</p>
+          <ul>
+            <li>
+              Adaptive Intelligence: We understand the nuances of your business and adapt our approach accordingly.
+            </li>
+            <li>
+              Seamless Integration: No more juggling between AI and human support; we provide a cohesive experience.
+            </li>
+            <li>
+              Expertise and Efficiency: Our professionals are equipped with advanced AI tools, enhancing their capabilities.
+            </li>
+            <li>
+              Confidentiality Assured: Your sensitive information is always protected with our strict security measures.
+            </li>
+          </ul>
+
+
+          <p>
+            Think about it: What's better than a team of experts working on your project? A MotivaPulse expert wielding the power of advanced AI. That's our edge.
+          </p>
+        </div>
         <div id="trigger" className={classes.scrollContainer}>
+          <div id="services">
+            <h1
+              className={classes.title}
+            >Our Services</h1>
+          </div>
           <Wheel />
           {sectionData.map((val, i) => (
             <Section
@@ -190,7 +257,7 @@ function Index() {
         </div>
         <div id="surprise" className={classes.surprise}>
           <div id="tailortext" className={classes.tailorWrapper}>
-            <h3>The tailor made site</h3>
+            <h3 id="why-us">Why choose us?</h3>
             <div ref={ref} id="svgContainer" className={classes.svgContainer}>
               <Play />
               <Social />
@@ -241,39 +308,92 @@ function Index() {
           style={{ backgroundColor: "var(--grey)" }}
           className={classes.projects}
         >
-          <Slider>
-            <div className={classes.mark}>
-              <svg id="mark" viewBox="0 0 100 100">
-                <defs>
-                  <path
-                    id="c-1"
-                    d="M 50, 50m -25, 0 a 25,25 0 1,1 50,0 a 25,25 0 1,1-50,0"
-                  ></path>
-                </defs>
-                <text fontSize="8">
-                  <textPath xlinkHref="#c-1">
-                    Découvrez nos études de cas
-                  </textPath>
-                </text>
-              </svg>
-            </div>
-          </Slider>
+          {/* <Slider> */}
+          {/*   <div className={classes.mark}> */}
+          {/*     <svg id="mark" viewBox="0 0 100 100"> */}
+          {/*       <defs> */}
+          {/*         <path */}
+          {/*           id="c-1" */}
+          {/*           d="M 50, 50m -25, 0 a 25,25 0 1,1 50,0 a 25,25 0 1,1-50,0" */}
+          {/*         ></path> */}
+          {/*       </defs> */}
+          {/*       <text fontSize="8"> */}
+          {/*         <textPath xlinkHref="#c-1"> */}
+          {/*           Découvrez nos études de cas */}
+          {/*         </textPath> */}
+          {/*       </text> */}
+          {/*     </svg> */}
+          {/*   </div> */}
+          {/* </Slider> */}
+
+
+
+          <div className="nice-container">
+            <header>
+              <h1
+                id="about"
+                style={{
+                  marginBottom: "50px",
+                  background: "var(--salmon-orange)",
+                  WebkitBackgroundClip: "text",
+                }}
+
+              >About Us</h1>
+            </header>
+            <main>
+              <p>
+                MotivaPulse AI isn't just another tech company. We're the world's first&nbsp;
+                <span className="highlight">AI-human collaboration agency</span>, dedicated to
+                delivering comprehensive solutions by seamlessly integrating top-tier
+                artificial intelligence tools with the expertise of a highly skilled team
+                of professionals.
+            </p>
+
+              <div className="mission">
+                <h2>Our Mission</h2>
+                <p>
+                  To make advanced technological capabilities accessible and user-friendly,
+                  ensuring you benefit from AI without the steep learning curve or mistrust
+                  associated with fully automated solutions.
+                </p>
+              </div>
+
+              <div className="belief">
+                <h2>Our Belief</h2>
+                <p>
+                  We believe in the power of combining cutting-edge AI with human ingenuity.
+                  This unique blend allows us to understand the nuances of your business and
+                  deliver tailored solutions that drive real results.
+                </p>
+              </div>
+
+              <p>
+                Our founder's journey and experiences have shaped MotivaPulse AI into a company
+                that truly understands and meets your business needs. Join us in shaping the
+                future of work, where human creativity and AI capabilities unite to unlock
+                unprecedented potential.
+            </p>
+            </main>
+          </div>
         </div>
-        <div
-          className={classes.callOfAction}
-          style={{ background: ctx?.theme?.color }}
-        >
-          <h2>
-            <strong>Don't wait!</strong>
-            <small>Give life to your communication</small>
-          </h2>
-          <Link
-            text={"Start the adventure"}
-            primary="var(--black)"
-            secondary={"rgba(0,0,0,0.1)"}
-            textColor="var(--grey)"
-          />
-        </div>
+        <QuoteCarousel />
+        <FAQAccordion />
+        <ContactForm />
+        {/* <div */}
+        {/*   className={classes.callOfAction} */}
+        {/*   style={{ background: ctx?.theme?.color }} */}
+        {/* > */}
+        {/*   <h2> */}
+        {/*     <strong>Don't wait!</strong> */}
+        {/*     <small>Give life to your communication</small> */}
+        {/*   </h2> */}
+        {/*   <Link */}
+        {/*     text={"Start the adventure"} */}
+        {/*     primary="var(--black)" */}
+        {/*     secondary={"rgba(0,0,0,0.1)"} */}
+        {/*     textColor="var(--grey)" */}
+        {/*   /> */}
+        {/* </div> */}
         <Footer />
       </div>
     </>
