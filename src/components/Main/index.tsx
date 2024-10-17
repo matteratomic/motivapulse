@@ -23,6 +23,8 @@ import useViewport from "./../../hooks/useViewport";
 import QuoteCarousel from "../QuoteCarousel";
 import FAQAccordion from "../FAQAccordion";
 import ContactForm from "../ContactForm";
+import { Navigation } from "lucide-react";
+import NavBar from "../NavBar";
 function Index() {
   const ctx = React.useContext(themeContext);
   const ref = React.useRef<HTMLDivElement>(null);
@@ -337,10 +339,9 @@ function Index() {
                   background: "var(--salmon-orange)",
                   WebkitBackgroundClip: "text",
                 }}
-
               >About Us</h1>
             </header>
-            <main>
+            <div>
               <p>
                 MotivaPulse AI isn't just another tech company. We're the world's first&nbsp;
                 <span className="highlight">AI-human collaboration agency</span>, dedicated to
@@ -373,7 +374,7 @@ function Index() {
                 future of work, where human creativity and AI capabilities unite to unlock
                 unprecedented potential.
             </p>
-            </main>
+            </div>
           </div>
         </div>
         <QuoteCarousel />

@@ -7,11 +7,13 @@
   font-weight: bold;
   background: linear-gradient(120deg, #16141c, #09080b);
 }
+
 .social {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
 }
+
 .wrapper {
   width: 90vw;
   margin: auto;
@@ -92,6 +94,8 @@
     flex-direction: row-reverse;
   }
   .social {
+    display:flex;
+    flex-direction:column;
     width: 100px;
   }
 }
@@ -100,4 +104,9 @@
   .rightMost {
     width: 90%;
   }
+
+.social * {
+    margin: 10px 10px;
+  }
+
 }

@@ -1,5 +1,5 @@
 .miniSection {
-  height: 100vh;
+  margin-top:100px;
   width: 100vw;
   background-color: var(--grey);
   display: flex;

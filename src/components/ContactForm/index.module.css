@@ -23,6 +23,7 @@
   max-width: 500px;
   margin: 0 auto;
   margin-top:64px;
+  margin-bottom:64px;
   background: #fff;
   padding: 40px;
   border-radius: 8px;
@@ -116,7 +117,7 @@ select:focus {
 
 @media (max-width: 600px) {
   .formContainer {
-    padding: 30px 20px;
+    /* padding: 30px 20px; */
   }
   .buttonGroup {
     flex-direction: column;
