@@ -25,6 +25,8 @@ import FAQAccordion from "../FAQAccordion";
 import ContactForm from "../ContactForm";
 import { Navigation } from "lucide-react";
 import NavBar from "../NavBar";
+import AITidbits from "../AITidbits";
+import CookieModal from "../CookieModal";
 function Index() {
   const ctx = React.useContext(themeContext);
   const ref = React.useRef<HTMLDivElement>(null);
@@ -187,59 +189,71 @@ function Index() {
           style={{ color: "white" }}
           className={classes.dilemmaContainer}>
           <h1
+            style={{textAlign:'center'}}
             className={classes.h1txt}>The AI Dilemma <span style={{ color: "#141219", display: 'block' }}>Why Settle for Less?</span></h1>
-          <p>Have you ever felt the frustration of</p>
-          <ul>
+          <p style={{textAlign:'center'}}>Have you ever felt the frustration of</p>
+          <ul style={{
+            listStyle:'none',
+            textAlign:'center'}}>
             <li>
-              Spending countless hours tweaking AI prompts, only to get inconsistent results?
+              • Spending countless hours tweaking AI prompts, only to get inconsistent results?
             </li>
             <li>
-              Receiving outputs that are close, but not quite right, wasting your valuable time?
+              • Receiving outputs that are close, but not quite right, wasting your valuable time?
             </li>
             <li>
-              Hitting unexpected limitations mid-project, forcing you to start over?
+              • Hitting unexpected limitations mid-project, forcing you to start over?
             </li>
             <li>
-              Dealing with privacy concerns when sharing sensitive business information?
+              • Dealing with privacy concerns when sharing sensitive business information?
             </li>
             <li>
-              Relying on traditional virtual assistants that lack advanced AI integration?
-            </li>
-          </ul>
-
-          <h1
-            id="revolution"
-            style={{ marginTop: "4rem" }}
-            className={classes.h1txt}>
-            Our Revolutionary Approach
-            <span style={{ color: "#141219", display: 'block' }}>
-              Human Brilliance Amplified by AI
-            </span></h1>
-          <p>
-            Why choose between human creativity and AI efficiency when you can have both?
-
-            At MotivaPulse AI, we offer a unique hybrid service that combines the best of both worlds. Our experts know precisely when to leverage AI tools and when the human touch is irreplaceable, delivering solutions that are both innovative and reliable.
-          </p>
-          <p>Our Edge</p>
-          <ul>
-            <li>
-              Adaptive Intelligence: We understand the nuances of your business and adapt our approach accordingly.
-            </li>
-            <li>
-              Seamless Integration: No more juggling between AI and human support; we provide a cohesive experience.
-            </li>
-            <li>
-              Expertise and Efficiency: Our professionals are equipped with advanced AI tools, enhancing their capabilities.
-            </li>
-            <li>
-              Confidentiality Assured: Your sensitive information is always protected with our strict security measures.
+             • Relying on traditional virtual assistants that lack advanced AI integration?
             </li>
           </ul>
 
+          <div className={classes.blendAI}>
+            <div style={{ flex: 1, paddingRight: '32px' }}>
+              <h1
+                id="revolution"
+                style={{ marginTop: "4rem" }}
+                className={classes.h1txt}>
+                Our Revolutionary Approach
+            {/* <span style={{ color: "#141219", display: 'block' }}> */}
+            {/*       Human Brilliance Amplified by AI */}
+            {/* </span> */}
 
-          <p>
-            Think about it: What's better than a team of experts working on your project? A MotivaPulse expert wielding the power of advanced AI. That's our edge.
+              </h1>
+              <p>
+                Why choose between human creativity and AI efficiency when you can have both?
+
+                At MotivaPulse AI, we offer a unique hybrid service that combines the best of both worlds. Our experts know precisely when to leverage AI tools and when the human touch is irreplaceable, delivering solutions that are both innovative and reliable.
           </p>
+              <p>Our Edge</p>
+              <ul>
+                <li>
+                  Adaptive Intelligence: We understand the nuances of your business and adapt our approach accordingly.
+            </li>
+                <li>
+                  Seamless Integration: No more juggling between AI and human support; we provide a cohesive experience.
+            </li>
+                <li>
+                  Expertise and Efficiency: Our professionals are equipped with advanced AI tools, enhancing their capabilities.
+            </li>
+                <li>
+                  Confidentiality Assured: Your sensitive information is always protected with our strict security measures.
+            </li>
+              </ul>
+
+
+              <p>
+                Think about it: What's better than a team of experts working on your project? A MotivaPulse expert wielding the power of advanced AI. That's our edge.
+          </p>
+
+            </div>
+            <div className={classes.blendAIImage}>
+            </div>
+          </div>
         </div>
         <div id="trigger" className={classes.scrollContainer}>
           <div id="services">
@@ -378,7 +392,9 @@ function Index() {
           </div>
         </div>
         <QuoteCarousel />
+        <AITidbits />
         <FAQAccordion />
+        <CookieModal/>
         <ContactForm />
         {/* <div */}
         {/*   className={classes.callOfAction} */}

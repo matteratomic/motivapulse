@@ -2,11 +2,80 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import classes from './index.module.css';
 
+
 const quotes = [
-  { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-  { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
-  { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
-  { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
+  {
+    text: "AI and humans working together can achieve what neither could alone.",
+    author: "Fei-Fei Li"
+  },
+  {
+    text: "AI doesn't replace humans; it empowers them to achieve more.",
+    author: "Andrew Ng"
+  },
+  {
+    text: "The synergy of human creativity and machine efficiency creates unparalleled solutions.",
+    author: "Sundar Pichai"
+  },
+  {
+    text: "AI is about augmenting human intelligence, not replacing it.",
+    author: "Ginni Rometty"
+  },
+  {
+    text: "Human intelligence combined with AI creates a force that transforms industries.",
+    author: "Demis Hassabis"
+  },
+  {
+    text: "The future of work is AI assisting humans, not replacing them.",
+    author: "Jensen Huang"
+  },
+  {
+    text: "AI unlocks creativity by handling the mundane, allowing humans to focus on innovation.",
+    author: "Eric Schmidt"
+  },
+  {
+    text: "AI allows humans to focus on what they do best: creativity, empathy, and innovation.",
+    author: "Sam Altman"
+  },
+  {
+    text: "The best results come from combining human insights with AI's precision.",
+    author: "Thomas Kurian"
+  },
+  {
+    text: "AI will amplify human abilities and push the boundaries of what we can achieve.",
+    author: "Elon Musk"
+  },
+  {
+    text: "AI is a partner in innovation, allowing humans to achieve unprecedented breakthroughs.",
+    author: "Sergey Brin"
+  },
+  {
+    text: "The combination of human insight and AI's capabilities is the future of innovation.",
+    author: "Kai-Fu Lee"
+  },
+  {
+    text: "Innovation thrives when AI amplifies human creativity.",
+    author: "MotivaTeam"
+  },
+  {
+    text: "The synergy of human insight and AI efficiency unlocks new possibilities.",
+    author: "MotivaTeam"
+  },
+  {
+    text: "Combining AI with human expertise leads to consistent excellence.",
+    author: "MotivaTeam"
+  },
+  {
+    text: "Human judgment guides AI's capabilities toward meaningful outcomes.",
+    author: "MotivaTeam"
+  },
+  {
+    text: "Collaboration between AI and humans is shaping the future of work.",
+    author: "MotivaTeam"
+  },
+  {
+    text: "Human creativity combined with AI's precision leads to breakthroughs.",
+    author: "MotivaTeam"
+  }
 ];
 
 const QuoteCarousel = () => {
@@ -86,3 +155,5 @@ const QuoteCarousel = () => {
 };
 
 export default QuoteCarousel;
+
+

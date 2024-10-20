@@ -1,63 +1,108 @@
+import React, { useState } from 'react';
 import classes from "./index.module.css";
-import React, { useEffect } from "react";
-import Palette from "../Palette";
-import { themeContext } from "../../context/ThemeContext";
-import { ReactComponent as Linkedin } from "../../assets/linkedin.svg";
-import { ReactComponent as Fb } from "../../assets/fb.svg";
-import { ReactComponent as Insta } from "../../assets/insta.svg";
-import { ReactComponent as Twitter } from "../../assets/twitter.svg";
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
-function Index() {
-  const ctx = React.useContext(themeContext);
-  const colorPicked = (val: string) => {
-    ctx?.setTheme({ color: val });
+// import React, { useState } from 'react';
+import { Send } from 'lucide-react';
+// import classes from './index.module.css';
+
+const Newsletter = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle newsletter subscription logic here
+    console.log('Subscribed with email:', email);
+    setIsSubmitted(true);
+    setEmail('');
+    setTimeout(() => setIsSubmitted(false), 3000);
   };
-  useEffect(() => { }, []);
+
   return (
-    <div className={classes.container}>
-      <div className={classes.wrapper}>
-        <div className={classes.trisec}>
-          <div className={classes.left}>
-            <h3 id="logo">MotivaPulse</h3>
-            <p>©{new Date().getFullYear()} All rights reserved</p>
-            {/* <div> */}
-            {/*   <Palette */}
-            {/*     style={{ width: "150px", justifyContent: "space-between" }} */}
-            {/*     hoverColor={"var(--grey)"} */}
-            {/*     colorPicked={colorPicked} */}
-            {/*   /> */}
-            {/* </div> */}
-          </div>
-          {/* <div className={classes.middle}> */}
-          {/*   <p>Address</p> */}
-          {/*   <h3>31 Cours Émile Zola, 69100 Villeurbanne</h3> */}
-          {/* </div> */}
-          {/* <div className={classes.right}> */}
-          {/*   <p>Let's talk together</p> */}
-          {/*   <h3>xx xx xx xx xx xxxx@motivapulse.xx</h3> */}
-          {/* </div> */}
+    <div className={classes.newsletterContainer}>
+      <h3 className={classes.newsletterTitle}>Stay Informed</h3>
+      <p className={classes.newsletterDescription}>
+        Subscribe to our newsletter for the latest in AI + Human innovation
+      </p>
+      <form onSubmit={handleSubmit} className={classes.newsletterForm}>
+        <div className={classes.inputGroup}>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className={classes.newsletterInput}
+          />
+          <button type="submit" className={classes.subscribeButton} disabled={isSubmitted}>
+            {isSubmitted ? 'Subscribed!' : <Send size={20} />}
+          </button>
         </div>
-        <div className={classes.rightMost}>
-          <div className={classes.social}>
-            <Linkedin height={18} width={18} fill="#5c5c5c" />
-            <Fb height={18} width={18} fill="#5c5c5c" />
-            <Insta height={18} width={18} fill="#5c5c5c" />
-            <Twitter height={18} width={18} fill="#5c5c5c" />
+      </form>
+      {isSubmitted && (
+        <p className={classes.successMessage}>Thank you for subscribing!</p>
+      )}
+    </div>
+  );
+};
+
+// export default Newsletter;
+
+function Footer() {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle newsletter subscription logic here
+    console.log('Subscribed with email:', email);
+    setEmail('');
+  };
+
+  return (
+    <footer className={classes.footer}>
+      <div className={classes.container}>
+        <div className={classes.topSection}>
+          <div className={classes.logoSection}>
+            <h3 id="logo">MotivaPulse</h3>
+            <p>© 2024 MotivaPulse AI. All rights reserved.</p>
           </div>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#dilemma">The AI Dilemma</a></li>
-            <li><a href="#revolution">Our Revolutionary Approach</a></li>
-            <li><a href="#services">Our Services</a></li>
-            <li><a href="#why-us">Why Choose us</a></li>
-            <li><a href="#about">About us</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <div className={classes.linksSection}>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/sitemap">Sitemap</a>
+            <a href="/careers">Career Opportunities</a>
+            <a href="/partners">Partner With Us</a>
+            <a href="/partners">Our Generous Offerings</a>
+          </div>
+        </div>
+        <div className={classes.middleSection}>
+          <div className={classes.socialSection}>
+            <p>Follow us on:</p>
+            <div className={classes.socialIcons}>
+              <a href="#" aria-label="Facebook"><Facebook size={24} /></a>
+              <a href="#" aria-label="Twitter"><Twitter size={24} /></a>
+              <a href="#" aria-label="LinkedIn"><Linkedin size={24} /></a>
+              <a href="#" aria-label="Instagram"><Instagram size={24} /></a>
+            </div>
+          </div>
+          <div className={classes.newsletterSection}>
+            <p>Subscribe to our newsletter for the latest in AI + Human innovation</p>
+            <form onSubmit={handleSubmit} className={classes.subscribeForm}>
+              <input
+                type="email"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <button style={{fontWeight:"bold"}} type="submit">Subscribe</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 
-export default Index;
+export default Footer;

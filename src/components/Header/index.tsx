@@ -39,15 +39,21 @@ function Index() {
       </h3>
       <nav className={classes.desktopNav}>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#dilemma">The AI Dilemma</a></li>
-          <li><a href="#revolution">Our Revolutionary Approach</a></li>
-          <li><a href="#services">Our Services</a></li>
-          <li><a href="#why-us">Why Choose us</a></li>
-          <li><a href="#about">About us</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a onClick={toggleMenu} href="#home">Home</a></li>
+          <li><a onClick={toggleMenu} href="#dilemma">The AI Dilemma</a></li>
+          <li><a onClick={toggleMenu} href="#revolution">Our Revolutionary Approach</a></li>
+          <li><a onClick={toggleMenu} href="#services">Our Services</a></li>
+          <li><a onClick={toggleMenu} href="#why-us">Why Choose us</a></li>
+          <li><a onClick={toggleMenu} href="#about">About us</a></li>
+          <li><a onClick={toggleMenu} href="#about">AI Insights</a></li>
+          <li><a onClick={toggleMenu} href="#about">Our Generous Offerings</a></li>
+          <li><a onClick={toggleMenu} href="#about">Blog</a></li>
+          <li><a onClick={toggleMenu} href="#faq">FAQ</a></li>
+          <li><a onClick={toggleMenu} href="#contact">Contact</a></li>
         </ul>
+        <a href="#contact" className={classes.button}>
+          BOOK PRIORITY MEETING NOW - $1
+          </a>
       </nav>
       <button onClick={toggleMenu} className={classes.menuButton}>
         <svg id="nav-svg" viewBox="0 0 100 100">
@@ -83,14 +89,18 @@ function Index() {
       </button>
       <nav ref={menuRef} className={classes.mobileNav}>
         <ul>
-          <li><a href="#home" onClick={toggleMenu}>Home</a></li>
-          <li><a href="#dilemma" onClick={toggleMenu}>The AI Dilemma</a></li>
-          <li><a href="#revolution" onClick={toggleMenu}>Our Revolutionary Approach</a></li>
-          <li><a href="#services" onClick={toggleMenu}>Our Services</a></li>
-          <li><a href="#why-us" onClick={toggleMenu}>Why Choose us</a></li>
-          <li><a href="#about" onClick={toggleMenu}>About us</a></li>
-          <li><a href="#faq" onClick={toggleMenu}>FAQ</a></li>
-          <li><a href="#contact" onClick={toggleMenu}>Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#dilemma">The AI Dilemma</a></li>
+          <li><a href="#revolution">Our Revolutionary Approach</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#why-us">Why Choose us</a></li>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#about">AI Insights</a></li>
+          <li><a href="#about">Our Generous Offerings</a></li>
+          <li><a href="#about">Blog</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+
         </ul>
       </nav>
     </div>

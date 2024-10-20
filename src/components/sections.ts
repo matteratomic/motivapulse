@@ -122,11 +122,6 @@ export const miniSectionData = [
     body: "Our dedicated support team is always available to assist you, ensuring a smooth and seamless experience.",
   },
   {
-    title: "Exceptional",
-    heading: "Support",
-    body: "Our dedicated support team is always available to assist you, ensuring a smooth and seamless experience.",
-  },
-  {
     title: "Customized",
     heading: "Solutions",
     body: "We tailor our services to meet your specific business needs, ensuring that you receive the most effective and relevant solutions.",

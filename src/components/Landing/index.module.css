@@ -24,9 +24,15 @@
 }
 
 .h1txt {
-  font-size: calc(20px + 3vw);
+  font-size: calc(16px + 3vw);
   line-height: 1.2;
   font-weight: 800;
+}
+
+.subheading {
+  /* white-space:wrap; */
+  margin-top:16px;
+  font-size:1.4rem;
 }
 
 .rcontainer {
@@ -106,6 +112,15 @@
   border: 2px solid white;
 }
 
+@media (max-width:768px){
+.subheading {
+  /* white-space:wrap; */
+  margin-top:16px;
+  font-size:1rem;
+}
+
+}
+
 @media (min-width: 768px) {
   .mainWrapper {
     width: 80%;
@@ -121,7 +136,7 @@
   }
 
   .textContainer {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     margin-top: calc(15px + 2%);
     margin-bottom: calc(25px + 2%);
     width: 110%;

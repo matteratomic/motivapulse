@@ -96,10 +96,13 @@ function Index() {
               })}
             </div>
           </div>
+          <div className={classes.subheading}>
+            At MotivaPulse AI, we seamlessly integrate cutting-edge AI technologies with the wisdom of seasoned professionals to drive innovation and efficiency in your business. Our unique hybrid approach ensures you receive unparalleled solutions tailored to your specific needs.
+          </div>
         </div>
         {/* <Link secondary={"rgba(255,255,255,0.1)"} text={"SCROLL DOWN"} /> */}
         <div style={{
-          position:'relative',zIndex:10,
+          position: 'relative', zIndex: 10,
           display: "flex", alignItems: "center"
         }}>
           <a href="#services" className={classes.button}>
