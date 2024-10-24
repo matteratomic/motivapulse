@@ -6,6 +6,7 @@ import gsap from "gsap";
 import keyboard from "../../assets/keyboard.png";
 import mouse from "../../assets/mouse.png";
 import useGradientSlicer from "../../hooks/useGradientSlicer";
+
 function Index() {
   const ctx = useContext(themeContext);
   const gradient = ctx?.theme?.color;
@@ -203,7 +204,9 @@ function Index() {
       <img
         src={keyboard}
         alt="keyboard"
-        style={{ width: "52%", position: "absolute", bottom: "5%" }}
+        style={{ 
+          filter:"contrast(0.93)",
+          width: "52%", position: "absolute", bottom: "5%" }}
       ></img>
       <img
         src={mouse}

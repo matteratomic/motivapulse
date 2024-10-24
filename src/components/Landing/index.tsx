@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { themeContext } from "./../../context/ThemeContext";
 import Screen from "../Screen";
 import Link from "../Link";
+import Particles from "react-particles-js";
 function Index() {
   const ctx = React.useContext(themeContext);
   const svgref = React.useRef<SVGSVGElement>(null);
@@ -56,6 +57,31 @@ function Index() {
   }, [ctx]);
   return (
     <section id="home" className={classes.main}>
+      <div style={{
+        position: 'absolute',
+        inset: 0
+      }}>
+        <Particles
+          params={{
+            "particles": {
+              "number": {
+                "value": 50
+              },
+              "size": {
+                "value": 3
+              }
+            },
+            "interactivity": {
+              "events": {
+                "onhover": {
+                  "enable": true,
+                  "mode": "repulse"
+                }
+              }
+            }
+          }}
+        />
+      </div>
       <div className={classes.mainWrapper}>
         {/* <div className={classes.svgWrapper}> */}
         {/*   <svg viewBox="0 0 100 100" ref={svgref}> */}

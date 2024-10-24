@@ -4,8 +4,7 @@
   z-index: 100;
   width: 65.6%;
   height: 57%;
-
-  background-color: #110f16;
+  background-color: #4c4461;
   position: absolute;
   top: 22.7%;
   left: 21%;
@@ -125,7 +124,8 @@
 }
 .scrtodo {
   width: 25%;
-  background-color: #16141c;
+  /* background-color: orange; */
+  background: var(--salmon-orange);
   transform: translateX(-300%);
   display: flex;
   flex-direction: column;
@@ -135,7 +135,7 @@
 .scrcross {
   width: 72%;
   transform: translateX(-120%);
-  background-color: #16141c;
+  background-color: orange;
   position: relative;
 }
 .scrcross::before {
@@ -268,6 +268,7 @@
   width: 100%;
   height: 1%;
 }
+
 #scrnote2 li {
   display: hidden;
 }
