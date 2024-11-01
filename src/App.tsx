@@ -1,72 +1,42 @@
 import React, { useEffect, useRef, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Setup from "./components/Setup";
 import classes from "./App.module.css";
-// import gsap from "gsap";
 import useCustomPointer from "./hooks/useCustomPointer";
 import ThemeContextProvider from "./context/ThemeContext";
 import Main from "./components/Main";
-// import ASScroll from "@ashthornton/asscroll";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Success from "./pages/Success"
+// import NotFound from "./pages/NotFound";
+
+// Import your other pages/components
+// import About from "./pages/About";
+// import Contact from "./pages/Contact";
+// import Projects from "./pages/Projects";
+
 function App() {
   useCustomPointer(["A", "BUTTON"]);
   const [, setVisible] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   const refContainer = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   setupSmoothScroll();
-  //   const body = document.getElementsByTagName("body")[0];
-  //   body.style.overflow = "hidden";
-  //   window.addEventListener("beforeunload", () => {
-  //     document.body.scrollTop = 0;
-  //     document.documentElement.scrollTop = 0;
-  //   });
-  // }, []);
-
   const setupSmoothScroll = () => {
-    // const asscroll = new ASScroll({
-    //   disableRaf: true,
-    //   containerElement: refContainer.current,
-    // });
-    // gsap.ticker.add(asscroll.update);
-    // gsap.registerPlugin(ScrollTrigger);
-    // ScrollTrigger.defaults({ scroller: asscroll.containerElement });
-    // ScrollTrigger.scrollerProxy(asscroll.containerElement, {
-    //   scrollTop(value) {
-    //     if (arguments.length) {
-    //       asscroll.currentPos = value!!;
-    //       return;
-    //     }
-    //     return asscroll.currentPos;
-    //   },
-    //   getBoundingClientRect() {
-    //     return {
-    //       top: 0,
-    //       left: 0,
-    //       width: window.innerWidth,
-    //       height: window.innerHeight,
-    //     };
-    //   },
-    // });
-    // asscroll.on("update", ScrollTrigger.update);
-    // ScrollTrigger.addEventListener("refresh", asscroll.resize);
-    // requestAnimationFrame(() => {
-    //   asscroll.enable({
-    //     newScrollElements: [ref.current],
-    //   });
-    // });
-    // return asscroll;
+    // Your smooth scroll setup code
   };
+
   return (
-    <>
+    <Router>
       <ThemeContextProvider>
         <div ref={refContainer} className={classes.master}>
           <div ref={ref}>
-            <Main />
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/success" element={<Success />} />
+              {/* <Route path="*" element={<NotFound />} /> */}
+            </Routes>
           </div>
         </div>
       </ThemeContextProvider>
-    </>
+    </Router>
   );
 }
 

@@ -58,6 +58,7 @@ function Index() {
   return (
     <section id="home" className={classes.main}>
       <div style={{
+        width:1000,
         position: 'absolute',
         inset: 0
       }}>

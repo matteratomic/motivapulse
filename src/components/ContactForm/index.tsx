@@ -1,23 +1,102 @@
 import { useForm, ValidationError } from '@formspree/react';
+import { loadStripe } from '@stripe/stripe-js';
+import { useState } from 'react';
 import classes from './index.module.css';
+
+const url = "https://formspree.io/f/mldryvgp"
+
+// Initialize Stripe with your publishable key
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+
+const sleep = (time) => new Promise((resolve, reject) => {
+  setInterval(() => {
+    resolve(null)
+  }, time)
+})
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm("xnnqnlvr");
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '' });
+
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
   }
-  return (
+
+  const handleFormSubmit = async (e) => {
+    setIsProcessing(true);
+    localStorage.setItem('formData', JSON.stringify(formData));
+    sleep(5000)
+    try {
+      // Create a payment session using Netlify function
+      const response = await fetch('/.netlify/functions/create-payment-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // body: JSON.stringify({
+        //   formData: Object.fromEntries(new FormData(e.target)),
+        // }),
+      });
+
+      const session = await response.json();
+
+      // Redirect to Stripe checkout
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (error) {
+        console.error('Payment error:', error);
+      }
+      // handleSubmit()
+    } catch (error) {
+      console.error('Error creating payment session:', error);
+    } finally {
+      setIsProcessing(false);
+    }
+
+  };
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    // console.log({name,value,formData})
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  return <>
+    {isProcessing ?
+      <div style={{
+        position: "fixed",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 100,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(255,255,255,0.5)'
+      }}>
+        <img width={128} src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif" />
+      </div>
+      : null}
     <div id="contact" className={classes.formContainer}>
       <h2 className={classes.heading}>Get in Touch</h2>
       <form
         onSubmit={handleSubmit}
         action="https://formspree.io/f/mldryvgp"
         name="contact" method="POST">
-        <input type="hidden" name="form-name" value="contact" />
+        <input
+          type="hidden" name="form-name" value="contact" />
 
         <div className={classes.formGroup}>
           <label htmlFor="name" className={classes.label}>Name</label>
-          <input type="text" id="name" name="name" required className={classes.input} />
+          <input
+            onChange={handleChange}
+            type="text" id="name" name="name" required className={classes.input} />
           <ValidationError
             prefix="Name"
             field="name"
@@ -27,7 +106,9 @@ const ContactForm = () => {
 
         <div className={classes.formGroup}>
           <label htmlFor="email" className={classes.label}>Email</label>
-          <input type="email" id="email" name="email" required className={classes.input} />
+          <input
+            onChange={handleChange}
+            type="email" id="email" name="email" required className={classes.input} />
           <ValidationError
             prefix="Email"
             field="email"
@@ -37,12 +118,15 @@ const ContactForm = () => {
 
         <div className={classes.formGroup}>
           <label htmlFor="phone" className={classes.label}>Phone Number</label>
-          <input type="tel" id="phone" name="phone" className={classes.input} />
+          <input
+            onChange={handleChange}
+            type="tel" id="phone" name="phone" className={classes.input} />
         </div>
 
         <div className={classes.formGroup}>
           <label htmlFor="subject" className={classes.label}>Subject</label>
           <textarea
+            onChange={handleChange}
             placeholder="Please enter your business name followed by your average revenue, separated by a space."
             id="subject" name="subject" required className={classes.input}
           />
@@ -54,7 +138,9 @@ const ContactForm = () => {
         </div>
         <div className={classes.formGroup}>
           <label htmlFor="date" className={classes.label}>Preferred Date</label>
-          <input type="date" id="date" name="date" className={classes.input} />
+          <input
+            onChange={handleChange}
+            type="date" id="date" name="date" className={classes.input} />
           <ValidationError
             prefix="Date"
             field="date"
@@ -65,7 +151,9 @@ const ContactForm = () => {
           <label htmlFor="country" className={classes.label}>Country</label>
           {/* <input type="text" id="country" name="country" required className={classes.input} /> */}
 
-          <select className={classes.formSelect} placeholder="Choose your country" id="country" name="country">
+          <select
+            onChange={handleChange}
+            className={classes.formSelect} placeholder="Choose your country" id="country" name="country">
             <option value="">Choose your country</option>
             <option value="AF">Afghanistan</option>
             <option value="AX">Åland Islands</option>
@@ -328,7 +416,9 @@ const ContactForm = () => {
         </div>
         <div className={classes.formGroup}>
           <label htmlFor="time" className={classes.label}>Preferred Time</label>
-          <input type="time" id="time" name="time" className={classes.input} />
+          <input
+            onChange={handleChange}
+            type="time" id="time" name="time" className={classes.input} />
           <ValidationError
             prefix="Time"
             field="time"
@@ -339,6 +429,7 @@ const ContactForm = () => {
         <div className={classes.formGroup}>
           <label htmlFor="message" className={classes.label}>Message</label>
           <textarea
+            onChange={handleChange}
             placeholder="Briefly describe what you're looking for and how we can assist you. If you're unsure, that's okay—this helps us prepare and ensures a smooth and efficient onboarding process."
             id="message" name="message" required className={classes.textarea}></textarea>
           <ValidationError
@@ -350,7 +441,7 @@ const ContactForm = () => {
 
         <div className={classes.buttonGroup}>
           <button type="submit" className={`${classes.button} ${classes.freeButton}`} name="submission-type" value="free">Send Message</button>
-          <button type="submit" className={`${classes.button} ${classes.priorityButton}`} name="submission-type" value="priority">Send PRIORITY Message- $1</button>
+          <div onClick={handleFormSubmit} className={`${classes.button} ${classes.priorityButton}`} name="submission-type" value="priority">Send PRIORITY Message- $1</div>
         </div>
         <small style={{ display: 'block', paddingTop: "16px" }}>
           *We do this to maintain quality control, as we've been receiving many applications. This ensures that your request is seen amongst the daily influx of applicants.
@@ -359,7 +450,7 @@ const ContactForm = () => {
 
       <p className={classes.note}>By choosing priority, your application will have a 62% higher chance of approval. Spaces are limited, so act fast to secure your spot!</p>
     </div>
-  );
+  </>
 };
 
 export default ContactForm;
