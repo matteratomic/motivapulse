@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
         },
       ],
       mode: 'payment',
-      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}&&is_priority=true`,
       cancel_url: `${origin}/contact`,
     });
 

@@ -1,34 +1,39 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-// import classes from './Success.module.css';
+import classes from './index.module.css'
+
+// const url = "https://formspree.io/f/xnnqnlvr"
 const url = "https://formspree.io/f/mldryvgp"
 const Success = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [status, setStatus] = useState('loading');
-  const [formData, setFormData] = useState({})
 
   const handleFormspreeSubmission = async () => {
     // Retrieve form data from localStorage
+    const formData = new FormData()
     const storedData = localStorage.getItem('formData');
+    let contactData = {}
+
     if (storedData) {
-      setFormData(JSON.parse(storedData));
+      contactData = JSON.parse(storedData)
     }
 
     // Remove the data from localStorage if it is sensitive
-    localStorage.removeItem('formData')
+    for (let key in contactData) {
+      formData.append(key, contactData[key])
+    }
 
     try {
-      const response = await fetch("https://formspree.io/f/xnnqnlvr", {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(storedData)
+        body: formData
       });
 
       if (response.ok) {
-        // console.log('Form submitted successfully!');
         setStatus('success')
       } else {
         console.error('Form submission failed.');
@@ -36,10 +41,19 @@ const Success = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
     }
+    finally {
+      localStorage.removeItem('formData')
+    }
   };
-  useEffect(() => {
 
+  useEffect(() => {
     const sessionId = searchParams.get('session_id');
+    const isPriority = searchParams.get('is_priority');
+
+    if (!isPriority) {
+      return setStatus('success')
+    }
+
     if (!sessionId) {
       navigate('/');
       return;
@@ -50,13 +64,12 @@ const Success = () => {
         const response = await fetch('/.netlify/functions/verify-payment', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Accept': 'application/json',
           },
           body: JSON.stringify({ sessionId }),
         });
 
         if (response.ok) {
-          // setStatus('success');
           handleFormspreeSubmission()
         } else {
           setStatus('error');
@@ -79,20 +92,23 @@ const Success = () => {
       alignItems: "center",
       justifyContent: 'center'
     }}>
-      {/* <div className={classes.successContainer}> */}
       {status === 'loading' && <p>Processing your payment...</p>}
       {status === 'success' && (
         <>
-          <h1>Thank You!</h1>
-          <p style={{ fontSize: 24 }}>Your priority application has been received.</p>
-          <button
-            style={{
-              marginTop: 20,
-              background: 'transparent',
-              padding: 16,
-              borderRadius: 10
-            }}
-            onClick={() => navigate('/')}>Return Home</button>
+          <div className={classes.content}>
+            <div className={classes.wrapper1}>
+              <div className={classes.wrapper2}>
+                <h1 className={classes.header}>Thank you !</h1>
+                <p>Your application has been received.</p>
+                <p>We are going to contact you soon.</p>
+                <button
+                  onClick={() => navigate('/')}
+                  className={classes.goHome}>
+                  go home
+                </button>
+              </div>
+            </div>
+          </div>
         </>
       )}
       {status === 'error' && (

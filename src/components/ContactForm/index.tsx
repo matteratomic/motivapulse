@@ -4,6 +4,7 @@ import { useState } from 'react';
 import classes from './index.module.css';
 
 const url = "https://formspree.io/f/mldryvgp"
+// const url = "https://formspree.io/f/xnnqnlvr"
 
 // Initialize Stripe with your publishable key
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
@@ -15,7 +16,8 @@ const sleep = (time) => new Promise((resolve, reject) => {
 })
 
 const ContactForm = () => {
-  const [state, handleSubmit] = useForm("xnnqnlvr");
+  // const [state, handleSubmit] = useForm("xnnqnlvr");
+  const [state, handleSubmit] = useForm("mldryvgp");
   const [isProcessing, setIsProcessing] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '' });
 
@@ -56,7 +58,6 @@ const ContactForm = () => {
     } finally {
       setIsProcessing(false);
     }
-
   };
 
 
@@ -87,10 +88,9 @@ const ContactForm = () => {
       <h2 className={classes.heading}>Get in Touch</h2>
       <form
         onSubmit={handleSubmit}
-        action="https://formspree.io/f/mldryvgp"
+        action={url}
         name="contact" method="POST">
-        <input
-          type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="form-name" value="contact" />
 
         <div className={classes.formGroup}>
           <label htmlFor="name" className={classes.label}>Name</label>
