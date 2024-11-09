@@ -294,7 +294,7 @@ height:56px;
 
 .blendAIImage {
 flex:1;
-background-image:url('http://localhost:3000/blend-ai.png');
+background-image:url('./blend-ai.png');
 padding-right:104px;
 border-radius:24px;
 }
